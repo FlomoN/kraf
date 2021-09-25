@@ -1,0 +1,30 @@
+{
+  "name": "kraf",
+  "version": "1.0.0",
+  "description": "Kubernetes resource visualization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlomoN/kraf.git"
+  },
+  "author": "FlomoN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlomoN/kraf/issues"
+  },
+  "homepage": "https://github.com/FlomoN/kraf#readme",
+  "dependencies": {
+    "@kubernetes/client-node": "^0.15.1",
+    "@types/d3-force": "^3.0.3",
+    "d3-force": "^3.0.0",
+    "fastify": "^3.21.6",
+    "nodemon": "^2.0.13",
+    "pino-pretty": "^7.0.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "kraf",
+  "version": "1.0.0",
+  "description": "Kubernetes Visualization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlomoN/kraf.git"
+  },
+  "author": "FlomoN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlomoN/kraf/issues"
+  },
+  "homepage": "https://github.com/FlomoN/kraf#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
