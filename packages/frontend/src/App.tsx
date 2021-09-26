@@ -6,8 +6,6 @@ import { ForceGraph } from "./ForceGraph";
 function App() {
   const { data, isLoading, isError } = useData();
 
-  const divRef = useRef(null);
-
   return (
     <div>
       {isLoading && <p>Loading...</p>}
