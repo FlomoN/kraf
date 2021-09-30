@@ -15,10 +15,26 @@ export function runForceGraph(container, dataIn) {
   const height = containerRect.height;
   const width = containerRect.width;
 
+  console.log("Rerunning Forcegraph");
+
   const svg = d3
     .select(container)
     .append("svg")
+    .attr("preserveAspectRatio", "none")
     .attr("viewBox", [0, 0, width, height].join(" "));
+
+  d3.select(window).on("resize", () => {
+    console.log("IM RESIZING");
+    svg.attr(
+      "viewBox",
+      [
+        0,
+        0,
+        container.getBoundingClientRect().width,
+        container.getBoundingClientRect().height,
+      ].join(" ")
+    );
+  });
 
   const g = svg.append("g");
 
@@ -86,6 +102,11 @@ export function runForceGraph(container, dataIn) {
           .distance(50)
       );
       simulation.alpha(1).restart();
+    },
+
+    destroy() {
+      svg.remove();
+      simulation.stop();
     },
   };
 }
