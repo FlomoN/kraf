@@ -51,9 +51,10 @@ export function runForceGraph(container, dataIn) {
       d3
         .forceLink(links)
         .id((d: any) => d.id)
-        .distance(100)
+        .distance(0)
+        .strength(1)
     )
-    .force("charge", d3.forceManyBody())
+    .force("charge", d3.forceManyBody().strength(-70))
     .force(
       "collide",
       d3

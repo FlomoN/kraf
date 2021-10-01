@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useData } from "./util/fetcher";
 import "./index.sass";
-import { ForceGraph } from "./ForceGraph";
+import { ForceGraph } from "./components/ForceGraph";
+import Settings from "./components/Settings";
 
 function App() {
   const { data, isLoading, isError } = useData();
@@ -11,6 +12,7 @@ function App() {
       {isLoading && <p>Loading...</p>}
       {isError && <p>Error... {JSON.stringify(isError)}</p>}
       {!isLoading && <ForceGraph data={data} />}
+      <Settings />
     </div>
   );
 }

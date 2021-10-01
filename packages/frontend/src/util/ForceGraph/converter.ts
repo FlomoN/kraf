@@ -15,6 +15,8 @@ interface Link {
  * @returns data transformed into nodes and links for d3
  */
 export function dataToNodes(data): [any[], any[]] {
+  console.log(data);
+
   const nodes: Node[] = [];
   const links: Link[] = [];
 
@@ -22,6 +24,14 @@ export function dataToNodes(data): [any[], any[]] {
   nodes.push({
     id: "Cluster",
     type: "core",
+  });
+
+  //Push all nodes
+  data.nodes.forEach((element) => {
+    nodes.push({
+      id: element,
+      type: "node",
+    });
   });
 
   //Push all namespaces
@@ -39,19 +49,27 @@ export function dataToNodes(data): [any[], any[]] {
     });
   });
 
+  //All pods
   data.pods.forEach((element, index) => {
     element.forEach((pod) => {
       // Push each Pod
       nodes.push({
-        id: pod,
+        id: pod.name,
         type: "pod",
       });
 
       // Create link to namespaces
       links.push({
-        id: data.namespaces[index] + "-" + pod,
-        source: data.namespaces[index],
-        target: pod,
+        id: pod.namespace + "-" + pod.name,
+        source: pod.namespace,
+        target: pod.name,
+      });
+
+      // Create link to nodes
+      links.push({
+        id: pod.node + "-" + pod.name,
+        source: pod.node,
+        target: pod.name,
       });
     });
   });

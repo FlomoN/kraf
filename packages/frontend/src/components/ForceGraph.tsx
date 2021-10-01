@@ -1,5 +1,5 @@
 import React from "react";
-import { runForceGraph } from "./util/ForceGraph";
+import { runForceGraph } from "../util/ForceGraph";
 
 export function ForceGraph({ data }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
