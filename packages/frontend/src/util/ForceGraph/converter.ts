@@ -1,3 +1,5 @@
+import { useStore } from "../store";
+
 interface Node {
   id: string;
   type: string;
@@ -73,6 +75,10 @@ export function dataToNodes(data): [any[], any[]] {
       });
     });
   });
+
+  const setNodeTypes = (useStore.getState() as any).setNodeTypes;
+  const nodeSet = new Set(nodes.map((elem) => elem.type));
+  setNodeTypes(Array.from(nodeSet.values()));
 
   return [nodes, links];
 }

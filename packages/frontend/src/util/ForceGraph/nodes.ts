@@ -5,7 +5,7 @@ import * as d3 from "d3";
  * @param param0 inputs a node to determine type
  * @returns a proper color for a node
  */
-function colorForType({ type }) {
+export function colorForType({ type }) {
   const colorMap = {
     core: "#B030B0",
     namespace: "#602080",
